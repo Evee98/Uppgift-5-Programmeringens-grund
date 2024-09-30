@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace EnkelKalkylator
 {
@@ -6,7 +7,7 @@ namespace EnkelKalkylator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enkel Kalkylator"); // Programmet skriver ut "Enkel Kalkylator"
+            Console.WriteLine("Enkel Kalkylator");
             Console.WriteLine("Ange operation (+, -, *, /): ");
             char operation = Console.ReadKey().KeyChar;
             Console.WriteLine("\nAnge första talet: ");
@@ -27,7 +28,15 @@ namespace EnkelKalkylator
                     result = num1 * num2;
                     break;
                 case '/':
-                    result = num1 / num2;
+                    if (num2 != 0)
+                    {
+                        result = num1 / num2;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Du kan inte dividera med noll");
+                    }
                     break;
                 default:
                     Console.WriteLine("Ogiltig operation.");
